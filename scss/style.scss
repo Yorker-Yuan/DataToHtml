@@ -1,0 +1,121 @@
+//base
+$baseColor: #eee;
+$baseSize: 12px;
+$width: 100%;
+$sizeLevel: 4px;
+$paddingLevel: 1.2;
+$baseLineSize: 10px;
+$TitleColor: #de9410;
+$blockNumber: 3;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: $baseColor;
+  text-align: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+.container {
+  width: $width;
+  padding: auto 15px;
+}
+header {
+  > h2 {
+    text-align: center;
+    margin: 10px auto;
+  }
+}
+.titlebar {
+  background-color: #fff;
+  padding: 10px 10%;
+  margin: auto 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  > div {
+    margin: 5px 10px;
+    > select {
+      width: 250px;
+    }
+  }
+}
+.section {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items:center;
+  justify-content: space-evenly;
+  padding: 1rem;
+  margin: 0;
+  text-align: left;
+  color: #fff;
+}
+.col {
+  width: $width/4 ;
+  min-width: 300px;
+  height: 250px;
+  display: block;
+  float: left;
+  position: relative;
+  margin: 1% 5px;
+  overflow: hidden;
+  >img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  >.mask{
+    background: rgba(0,0,0,.3);
+    position: absolute;
+    height: 99%;
+    width: $width;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+  >.title{
+    position: absolute;
+    width: 60px;
+    padding: 5px;
+    background-color: $TitleColor;
+    z-index: 99;
+  }
+  >.info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+  }
+  
+  >.fadeIn{
+    bottom: 0%;
+  }
+  :first-child {
+    margin-left: 0;
+  }
+  @media only screen and (max-width: 480px) {
+    margin: 1% 0 1% 0;
+  }
+}
+.contents{
+  position: relative;
+  display: none;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transform: translate(0%,0%);
+  transition: all .1s ease-in-out 0s;
+}
+.info:hover .contents{
+  position: relative;
+  display: block;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+}

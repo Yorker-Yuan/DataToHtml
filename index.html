@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>農村地方美食小吃特色料理</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2>農村地方美食小吃特色料理</h2>
+    </header>
+    <section class="titlebar">
+      <div>
+        <select id="area" onchange="changeHandler(this.selectedIndex)">
+          <option value="">請選擇行政區域</option>
+        </select>
+      </div>
+       <div>
+        <select id="zone">
+          <option value="">請選擇鄉鎮區</option>
+        </select>
+       </div>
+    </section>
+    <div class="section">
+      <div class="col" id="box">
+        <div class="mask"></div>
+        <div class="title">苗栗縣</div>
+        <img src="1.jpg" >
+        <div class="info">
+          <i>白沙鄉</i>
+          <h3>元貝魚場料理</h3>
+          <p class="contents fadeIn">
+            提供資料包含：名稱、地址、電話、主人的話、費用簡介、營業時間、刷卡(True_False)、國民旅遊卡(True_False)、交通指引、停車場、網站連結、業者email、部落格網址、寵物須知、貼心叮嚀、最佳時令、容納人數、美食特色、景點縣市、鄉鎮、座標等欄位資料。</p>
+        </div>
+      </div>
+      <!-- <div class="col span-2">
+        <div class="mask"></div>
+        <div class="title">苗栗縣</div>
+        <div class="info">
+          <i>白沙鄉</i>
+          <h3>元貝魚場料理</h3>
+          <p class="contents fadeIn">
+            提供資料包含：名稱、地址、電話、主人的話、費用簡介、營業時間、刷卡(True_False)、國民旅遊卡(True_False)、交通指引、停車場、網站連結、業者email、部落格網址、寵物須知、貼心叮嚀、最佳時令、容納人數、美食特色、景點縣市、鄉鎮、座標等欄位資料。</p>
+        </div>
+      </div>
+      <div class="col span-3">
+        <div class="mask"></div>
+        <div class="title">苗栗縣</div>
+        <div class="info">
+          <i>白沙鄉</i>
+          <h3>元貝魚場料理</h3>
+          <p class="contents fadeIn">
+            提供資料包含：名稱、地址、電話、主人的話、費用簡介、營業時間、刷卡(True_False)、國民旅遊卡(True_False)、交通指引、停車場、網站連結、業者email、部落格網址、寵物須知、貼心叮嚀、最佳時令、容納人數、美食特色、景點縣市、鄉鎮、座標等欄位資料。</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <script src="js/Script.js"></script>
+</body>
+</html>
