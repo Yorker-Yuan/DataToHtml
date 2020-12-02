@@ -15,14 +15,10 @@
     </header>
     <section class="titlebar">
       <div>
-        <select id="area" onchange="changeHandler(this.value)">
-          <option value="">請選擇行政區域</option>
-        </select>
+        <select id="area" onchange="changeHandler(this.value)"></select>
       </div>
        <div>
-        <select id="zone">
-          <option value="">請選擇鄉鎮區</option>
-        </select>
+        <select id="zone" onchange="changeViewHandler(this.value)"></select>
        </div>
     </section>
     <div class="section" id="box"></div>

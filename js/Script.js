@@ -8,7 +8,8 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     var rows = JSON.parse(xhttp.responseText);
-    var txt = `<option value="">請選擇行政區域</option>`;
+    var txtArea = `<option value="">請選擇行政區域</option>`;
+    var txtZone = `<option value="">請選擇鄉鎮區</option>`;
     var result = '';
     
     //去重
@@ -16,9 +17,9 @@ xhttp.onreadystatechange = function() {
     const NorepeatCity = rows.filter(item=>!set.has(item.City)?set.add(item.City):false);
     //一階SELECT
     for (let i = 0;i<NorepeatCity.length;i++) {
-      txt += `<option value="${NorepeatCity[i].City}">${NorepeatCity[i].City}</option>`;
+      txtArea += `<option value="${NorepeatCity[i].City}">${NorepeatCity[i].City}</option>`;
     }   
-    document.getElementById("area").innerHTML = txt;
+    document.getElementById("area").innerHTML = txtArea;
     //全部顯示
     for(let j = 0;j<rows.length; j++)
     {
@@ -47,4 +48,8 @@ xhttp.send();
 //二階select
 function changeHandler(val){
   
+}
+//三階畫面
+function changeViewHandler(val){
+
 }
