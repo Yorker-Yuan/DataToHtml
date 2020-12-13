@@ -14,11 +14,18 @@
       <h2>農村地方美食小吃特色料理</h2>
     </header>
     <section class="titlebar">
-        <select id="select__area" onchange="changeHandler(this.value)"></select>
-        <select id="select__zone" onchange="changeViewHandler(this.value)"></select>
+        <select id="select__area" onchange="changeHandler(this.value)">
+          <option value="">請選擇行政區域</option>
+        </select>
+        <select id="select__zone" onchange="changeViewHandler(this.value)">
+          <option value="">請選擇鄉鎮區</option>
+        </select>
     </section>
     <div class="section" id="box"></div>
   </div>
+  <div class="loaderbody" id="loaderbody">
+    <div class="loader"></div>
+</div>
 
   <script src="js/Script.js"></script>
   <script>

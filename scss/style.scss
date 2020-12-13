@@ -23,14 +23,14 @@ header {
 .titlebar {
   background-color: color(normal);
   padding: $padding;
-  margin: auto 10%;
+  margin: auto 8%;
   @include flex(row);
 
   @include mobile{
     @include flex(column);
     align-items: center;
     margin: $margin auto;
-    padding: 0;
+    padding: 0 8%;
     background-color: transparent;
   }
  select {
@@ -39,30 +39,36 @@ header {
       background-color: color(base);
 
       @include mobile{
-        width: 80%;
+        width: 100%;
         height: 30px;
-        margin: $margin*.5;
+        margin: $margin*.5 0;
         background-color: color(select_title_mobile);
       }
   }
 }
 .section {
  @include flex(row);
+ justify-content: space-between;
   text-align: left;
   color: #fff;
+  padding: 0 8%;
 }
 .col {
-  width: 25% ;
+  width: 32% ;
   min-width: 300px;
   height: 250px;
   display: block;
   float: left;
   position: relative;
-  margin: 1% $margin*1.5;
+  margin: 1% $margin*2 1% 0;
   overflow: hidden;
 
+  &:nth-child(3n+3){
+    margin-right: 0;
+  }
+
 @include mobile{
-  width: 80%;
+  width: 100%;
 }
 
   img{
@@ -142,4 +148,40 @@ header {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
+}
+
+//loader
+.loaderbody {
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background-color: rgba(128,128,128,0.2);
+  z-index: 2147483647;
+
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 45%;
+    left: 40%;
+  }
+}
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.hide {
+  display: none;
 }

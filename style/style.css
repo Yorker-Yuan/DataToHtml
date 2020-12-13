@@ -31,7 +31,7 @@ header h2 {
 .titlebar {
   background-color: #fff;
   padding: 10px;
-  margin: auto 10%;
+  margin: auto 8%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -64,7 +64,7 @@ header h2 {
         -ms-flex-align: center;
             align-items: center;
     margin: 10px auto;
-    padding: 0;
+    padding: 0 8%;
     background-color: transparent;
   }
 }
@@ -77,9 +77,9 @@ header h2 {
 
 @media only screen and (max-width: 680px) {
   .titlebar select {
-    width: 80%;
+    width: 100%;
     height: 30px;
-    margin: 5px;
+    margin: 5px 0;
     background-color: #ddd;
   }
 }
@@ -97,24 +97,32 @@ header h2 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   text-align: left;
   color: #fff;
+  padding: 0 8%;
 }
 
 .col {
-  width: 25%;
+  width: 32%;
   min-width: 300px;
   height: 250px;
   display: block;
   float: left;
   position: relative;
-  margin: 1% 15px;
+  margin: 1% 20px 1% 0;
   overflow: hidden;
+}
+
+.col:nth-child(3n+3) {
+  margin-right: 0;
 }
 
 @media only screen and (max-width: 680px) {
   .col {
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -204,4 +212,55 @@ header h2 {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
+}
+
+.loaderbody {
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background-color: rgba(128, 128, 128, 0.2);
+  z-index: 2147483647;
+}
+
+.loaderbody .loader {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  position: fixed;
+  top: 45%;
+  left: 40%;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.hide {
+  display: none;
 }
