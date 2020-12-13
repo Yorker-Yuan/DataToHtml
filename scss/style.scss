@@ -1,77 +1,82 @@
-//base
-$baseColor: #eee;
-$baseSize: 12px;
-$width: 100%;
-$sizeLevel: 4px;
-$paddingLevel: 1.2;
-$baseLineSize: 10px;
-$TitleColor: #de9410;
-$blockNumber: 3;
+@import './config';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 html {
-  background-color: $baseColor;
+  background-color: color(base);
   text-align: center;
   height: 100vh;
   font-family: 'Roboto', sans-serif;
 }
 .container {
   width: $width;
-  padding: auto 15px;
+  padding: auto $padding;
 }
 header {
-  > h2 {
+  h2 {
     text-align: center;
-    margin: 10px auto;
-  }
-}
-.titlebar {
-  background-color: #fff;
-  padding: 10px 10%;
-  margin: auto 5%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  > div {
-    margin: 5px 10px;
-    > select {
-      width: 250px;
+    margin: $margin auto;
+
+    @include mobile{
+      font-size: 2rem;
     }
   }
 }
+.titlebar {
+  background-color: color(normal);
+  padding: $padding;
+  margin: auto 10%;
+  @include flex(row);
+
+  @include mobile{
+    @include flex(column);
+    align-items: center;
+    margin: $margin auto;
+    padding: 0;
+    background-color: transparent;
+  }
+ select {
+      margin: $margin;
+      width: 250px;
+      background-color: color(base);
+
+      @include mobile{
+        width: 80%;
+        height: 30px;
+        margin: $margin*.5;
+        background-color: color(select_title_mobile);
+      }
+  }
+}
 .section {
-  display: flex;
-  flex-wrap: wrap;
-  // flex-direction: row;
-  // align-items:center;
-  justify-content: space-evenly;
+ @include flex(row);
   text-align: left;
   color: #fff;
 }
 .col {
-  width: $width/4 ;
+  width: 25% ;
   min-width: 300px;
   height: 250px;
   display: block;
   float: left;
   position: relative;
-  margin: 1% 5px;
+  margin: 1% $margin*1.5;
   overflow: hidden;
-  >img{
+
+@include mobile{
+  width: 80%;
+}
+
+  img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     transform: scale(1,1);
     transition: all 1s ease-in-out;
+
+    &:hover{
+      transform: scale(1.05,1.05);
+    }
   }
-  >img:hover{
-    transform: scale(1.05,1.05);
-  }
-  >.mask{
+  .mask{
     background: rgba(0,0,0,.3);
     position: absolute;
     height: 99%;
@@ -81,52 +86,54 @@ header {
     bottom: 0;
     right: 0;
   }
-  >.title{
+  .title{
     position: absolute;
     width: 60px;
-    padding: 5px;
-    background-color: $TitleColor;
+    padding: $padding*.5;
+    background-color: color(title);
     z-index: 99;
   }
-  >.info{
+  .info{
     position: absolute;
     bottom: 0;
     left: 0;
-    padding: 5px;
+    padding: $padding*.5;
+
+    &:hover{
+      .contents{
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+        bottom: 0;
+        left: 0;
+        opacity: 1;
+      }
+    }
+
+    .contents{
+      position: relative;
+      display: none;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      transform: translate(0%,0%);
+      transition: all .1s ease-in-out 0s;
+    }
   }
   
-  >.fadeIn{
+  .fadeIn{
     bottom: 0%;
   }
-  :first-child {
-    margin-left: 0;
-  }
-  @media only screen and (max-width: 480px) {
-    margin: 1% 0 1% 0;
+  @include mobile {
+    margin: 3% 0;
   }
 }
-.contents{
-  position: relative;
-  display: none;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  transform: translate(0%,0%);
-  transition: all .1s ease-in-out 0s;
-}
-.info:hover .contents{
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-  bottom: 0;
-  left: 0;
-  opacity: 1;
-}
+
 .showText{
   overflow: hidden;
   white-space: nowrap;

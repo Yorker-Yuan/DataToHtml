@@ -1,0 +1,37 @@
+$colors:(
+  base:#eee,
+  normal: #fff,
+  title:  #de9410,
+  select_title_mobile:#ddd
+);
+$baseSize: 12px;
+$width: 100%;
+$sizeLevel: 4px;
+$padding: 10px;
+$margin:10px;
+$blockNumber: 3;
+$mobile: 680px;
+
+@function color($color-name){
+  @return map-get($colors , $color-name );
+}
+
+@mixin flex($direction) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin mobile {
+  @media only screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
